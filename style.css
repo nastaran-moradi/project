@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face{font-family:'Roboto';src:url('assets/fonts/roboto.woff2') format('woff2');font-weight:normal;font-style:normal}
+html,body{
+    font-family:'Roboto';
+    overflow: hidden;
+}
+.cover, .cover:before {
+    position: absolute;
+    width: 105vw;
+    height: 105vh;
+    filter: blur(5px);
+    left: -2.5vw;
+    right: -2.5vw;
+    top: -2.5vh;
+    bottom: -2.5vh;
+    content: " ";
+    background-color: rgba(0,0,0,0.5);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.player{
+    position: absolute;
+    top: 50%;
+    left : 50%;
+    transform: translate(-50%,-50%);
+    width: 320px;
+    height: 480px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #000;
+}
+.player .main{
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    transition: 1s all;
+}
+.player .main .thumbnail{
+    width: 100%;
+    height: 300px;
+}
+.player .main .thumbnail img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.player .main .seekbar{
+    margin-top: -15px;
+}
+.player .main .seekbar input[type='range']{
+    width: 100%;
+    height: 4px;
+    -webkit-appearance: none;
+    overflow: hidden;
+    outline: none;
+    background-color: #aaa;
+}
+.player .main .seekbar input[type='range']::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    box-shadow: -300px 0 0 300px #00acee;
+}
+.player .main .details{
+    text-align: center;
+    padding: 15px 0;
+}
+.player .main .details h2 {
+    font-size: 20px;
+    color: #eee;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+.player .main .details p{
+    font-size: 15px;
+    color: #aaa;
+}
+.player .main .controls{
+    display: flex;
+    justify-content: center;
+    margin:8px 0;
+    align-items: center;
+}
+.player .main .controls > div{
+    padding: 0 16px;
+    cursor: pointer;
+}
+.player .main .controls i.fa{
+    color: #ddd;
+    font-size: 25px;
+}
+.player .main .shuffle{
+    position: absolute;
+    bottom: 40px;
+    padding: 10px;
+    right: 28px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.player .main .shuffle i.fa{
+    width: 100%;
+    height: 100%;
+    color: #ddd;
+    font-size: 14px;
+}
+.volume{
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+}
+.volume i.fa{
+    color: #ddd;
+   font-size: 12px;
+}
+.volume-value{
+    width: 50px;
+    height: 2px;
+    margin-left: 4px;
+}
+.player .main .controls > div.play-pause-control i.fa-play{
+    display: none;
+}
+.player .main .controls > div.play-pause-control.paused i.fa-play{
+    display: block;
+}
+.player .main .controls > div.play-pause-control.paused i.fa-pause{
+    display: none;
+}
+.player-list{
+    position: absolute;
+    width: 100%;
+    margin-top: -20px;
+    height: 350px;
+    overflow-y: hidden;
+    background: rgba(0,0,0,0.8);
+    z-index: 2;
+    transition: 1s all;
+}
+.player .player-list .toggle-list{
+    position: sticky;
+    top: 0;
+    line-height: 20px;
+    height: 20px;
+    text-align: center;
+    color: #555;
+}
+.player .player-list .toggle-list i.fa{
+    color: #ccc;
+    font-size: 20px;
+    font-weight: 600;
+}
+.player .player-list .toggle-list i.fa-angle-down{
+    display: none;
+}
+.player .player-list .toggle-list i.fa-angle-up {
+    display: block;
+    cursor: pointer;
+
+}
+.player .player-list .toggle-list.active i.fa-angle-down {
+    display: none;
+}
+.player .list{
+    padding: 10px;
+}
+.player .list .item{
+    display: flex;
+    padding: 5px 0;
+    border-bottom: 1px solid #222;
+    cursor: pointer;
+}
+.player .list .item .thumbnail{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.player .list .thumbnail img{
+    width: 100%;
+    height: 100%;
+}
+.player .list .item .details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+}
+.player .list .item .details h2 {
+    color: #fafafa;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+}
+.player .list .item .details p{
+    color: #aaa;
+    font-size: 15px;
+}
+.player-list ::-webkit-scrollbar{
+    width: 5px;
+    background: #222;
+}
+.player-list ::-webkit-scrollbar-thumb{
+    background: #00acee;
+}
+.activeSongList .player-list{
+    margin-top: -350px;
+    transition: 1s all;
+}
+.activeSongList .main{
+    filter: blur(5px);
+}
+.activeSongList .toggle-list .fa-angle-up {
+    transform: rotate(180deg);
+    animation: bounce-down 1s ease-in-out 1s infinite alternate;
+}
+.fa-angle-up{
+    animation: bounce-in 1s  linear 1s infinite alternate;
+}
+@keyframes bounce-in {
+    0%  { transform: scale(.9,1.1) translateY(0px)}
+    100% {transform: scale(1, 0.5) translateY(-6px)}
+}
+
+@keyframes bounce-down {
+    0%  { transform: rotate(180deg) scale(.9,1.1) translateY(0px)}
+    100% {transform: rotate(180deg) scale(1, 0.5) translateY(-6px)}
+}
+.player .main .controls i.fa-backward{
+    font-size: 16px;
+}
+.player .main .controls i.fa-forward{
+    font-size: 16px;
+}
+.add-shuffle{
+    border-radius: 50%;
+    background-color: #0075ff;
+}

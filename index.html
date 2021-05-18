@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cover"></div>
+    <div class="player">
+        <div class="main">
+            <audio></audio>
+            <div class="thumbnail">
+                <img src="public/foushee.jpg" alt="">
+            </div>
+            <div class="seekbar">
+                <input type="range" name="">
+            </div>
+            <div class="details">
+                <h2>SongName</h2>
+                <p>ArtistName</p>
+            </div>
+            <div class="controls">
+                <div class="prev-control">
+                    <i class="fa fa-backward"></i>
+                </div>
+                <div class="play-pause-control paused">
+                    <i class="fa fa-play"></i>
+                    <i class="fa fa-pause"></i>
+                </div>
+                <div class="next-control">
+                    <i class="fa fa-forward"></i>
+                </div>
+
+            </div>
+            <div class="volume">
+                <i class="fa fa-volume-up"></i>
+                <input type="range" min="0" max="10" value="7" step="1" class="volume-value">
+            </div>
+            <div class="shuffle">
+                <i class="fa fa-random"></i>
+            </div>
+
+
+        </div>
+        <div class="player-list">
+            <div class="toggle-list">
+                <i class="fa fa-angle-up"></i>
+                <i class="fa fa-angle-down"></i>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <div class="thumbnail">
+                        <img src="" alt="">
+                    </div>
+                    <div class="details">
+                        <h2>SongName</h2>
+                        <p>ArtistName</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="thumbnail">
+                        <img src="" alt="">
+                    </div>
+                    <div class="details">
+                        <h2>SongName</h2>
+                        <p>ArtistName</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+let songList = [
+    {
+
+        thumbnail: './public/Adele-Someone-Like-You.png',
+        audio: 'Adele_Someone_Like_You_320.mp3',
+        songName: 'Someone-Like-You',
+        artistName: 'Adele',
+    },
+
+
+    {
+        thumbnail: './public/آهنگ-۸-بعدی-بیلی-ایلیش.jpg',
+        audio: 'Billie_Eilish_Everything_I_Wanted_320.mp3',
+        songName: 'Everything_I_Wanted',
+        artistName: 'Billie_Eilish',
+    },
+    {
+        thumbnail: './public/deepend.jpg',
+        audio: 'Foushee - Deep End.mp3',
+        songName: 'Deep End',
+        artistName: 'Foushee',
+
+    },
+    {
+        thumbnail: './public/8TEEN-khalid.png',
+        audio: 'Young Dumb & Broke - Khalid.mp3',
+        songName: 'Young Dumb & Broke',
+        artistName: 'Khalid',
+    },
+    {
+        thumbnail: './public/parse.jpg',
+        audio: 'Moein Z - Parse(320).mp3',
+        songName: 'parse',
+        artistName: 'Moein Z',
+    },
+
+
+
+]
+</script>
+<script src="main.js"></script>
+</html>
